@@ -229,7 +229,7 @@ public class TranspotravelController implements Initializable{
 		ObservableList<distribuciovols>imatges=FXCollections.observableArrayList();
 	    
     	try {
-			InputStream input= new FileInputStream("C:\\Users\\Douglas\\git\\TranspotravelTest\\test\\Imatges\\viatgeDef.jpg");
+			InputStream input= new FileInputStream("C:\\Users\\Douglas\\git\\Transpotravel\\Transpotravel\\Imatges\\viatgeDef.jpg");
 	    	Image myimage =new Image(input);	
 	    	ImageView em1 =new ImageView(myimage);
 	    	distribuciovols ImatgeNova=new distribuciovols(0, null, null, 0, null, null, 0, 0, null,em1,null);
@@ -237,7 +237,7 @@ public class TranspotravelController implements Initializable{
 	    	imatges.add(ImatgeNova);
     	
     	
-	    	InputStream input2= new FileInputStream("C:\\Users\\Douglas\\git\\TranspotravelTest\\test\\Imatges\\viatgeDef.jpg");
+	    	InputStream input2= new FileInputStream("C:\\Users\\Douglas\\git\\Transpotravel\\Transpotravel\\Imatges\\viatgeDef.jpg");
 	    	Image myimage2 =new Image(input2);	
 	    	ImageView em2 =new ImageView(myimage2);
 	    	distribuciovols ImatgeNova2=new distribuciovols(0, null, null, 0, null, null, 0, 0, null,em2,null);
