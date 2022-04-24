@@ -6,6 +6,7 @@ module Transpotravel.Transpotravel {
 	requires java.sql;
 	requires javafx.graphics;
 	requires java.desktop;
+	requires javafx.base;
 
     opens Transpotravel.Transpotravel to javafx.fxml;
     exports Transpotravel.Transpotravel;

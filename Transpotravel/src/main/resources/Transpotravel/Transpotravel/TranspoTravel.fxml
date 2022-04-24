@@ -13,21 +13,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #34495E;" stylesheets="@prova.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="Transpotravel.Transpotravel.TranspotravelController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #002534;" stylesheets="@prova.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Transpotravel.Transpotravel.TranspotravelController">
    <children>
-      <Text layoutX="223.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TranspoTravel">
+      <Text fill="WHITE" layoutX="223.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TranspoTravel">
          <font>
             <Font size="25.0" />
          </font></Text>
-      <TabPane layoutY="57.0" prefHeight="345.0" prefWidth="600.0" style="-fx-background-color: #34495E;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="57.0" prefHeight="345.0" prefWidth="600.0" style="-fx-background-color: #002534;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab style="-fx-background-color: #34495E;" text="Ofertes">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="765.0" style="-fx-background-color: #154360;">
                      <children>
-                        <TableView fx:id="OfertesimatgeiDescripcio" layoutX="-3.0" layoutY="-8.0" prefHeight="325.0" prefWidth="606.0" style="-fx-background-color: #34495E;">
+                        <TableView fx:id="OfertesimatgeiDescripcio" layoutX="-3.0" layoutY="-8.0" prefHeight="325.0" prefWidth="606.0" style="-fx-background-color: #002534;">
                           <columns>
-                            <TableColumn fx:id="imatgeOfertes" prefWidth="600.0" style="-fx-background-color: #34495E;" />
+                            <TableColumn fx:id="imatgeOfertes" minWidth="600.0" prefWidth="400.0" style="-fx-background-color: #34495E;" />
                           </columns>
                         </TableView>
                      </children>
@@ -38,17 +38,17 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="281.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vols">
+                        <Text fill="WHITE" layoutX="281.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vols">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="94.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Origen">
+                        <Text fill="WHITE" layoutX="94.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Origen">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="466.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destí">
+                        <Text fill="WHITE" layoutX="466.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destí">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -117,49 +117,49 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="43.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pàgina de contacte" textAlignment="CENTER">
+                        <Text fill="WHITE" layoutX="43.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pàgina de contacte" textAlignment="CENTER">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Text layoutX="43.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL info@inspalamos.cat">
+                        <Text fill="WHITE" layoutX="43.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL info@inspalamos.cat">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="43.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfon: 972 602 344">
+                        <Text fill="WHITE" layoutX="43.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfon: 972 602 344">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="43.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacta amb nosaltres:">
+                        <Text fill="WHITE" layoutX="43.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacta amb nosaltres:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
                         <TextArea fx:id="TextAreaContacte" layoutX="43.0" layoutY="176.0" prefHeight="125.0" prefWidth="480.0" />
                         <Button fx:id="EnviarDadesContacte" layoutX="533.0" layoutY="226.0" mnemonicParsing="false" text="Enviar" />
-                        <Text layoutX="391.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsables:">
+                        <Text fill="WHITE" layoutX="391.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsables:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="463.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alejandro Perez">
+                        <Text fill="WHITE" layoutX="463.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alejandro Perez">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="463.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ignasi Ferrers">
+                        <Text fill="WHITE" layoutX="463.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ignasi Ferrers">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="463.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luis Garcia">
+                        <Text fill="WHITE" layoutX="463.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luis Garcia">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="463.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Douglas Portillo">
+                        <Text fill="WHITE" layoutX="463.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Douglas Portillo">
                            <font>
                               <Font size="15.0" />
                            </font>
