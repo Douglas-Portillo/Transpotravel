@@ -1,6 +1,9 @@
 package Transpotravel.Transpotravel;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -42,7 +45,7 @@ public class LoginController implements Initializable{
     		
     	}else {
     		
-    		LoginIncorrecte.setText("Posa l'usuari i la contrasenya");
+    		LoginIncorrecte.setText("       Posa l'usuari i la contrasenya");
         	
     	}
     	
@@ -61,20 +64,52 @@ public class LoginController implements Initializable{
     private void pantallaRegistre() throws IOException {
         App.setRoot("registre");
     }
-    
-     
-    //registre "INSERT INTO transpotravel.persona (nom,cognom1,cognom2,contrasenya) VALUES ('prova','prova1','prova2','1234');";
-	
+    	
     
     void validarLogin() {
     	
-    	conexio = new Conbd();
+    	Conbd conn = new Conbd();
+    	Connection connectDB = conn.getConexio();
+
+    	String correu = correuLogin.getText();
+    	String contrasenya = contrasenyaLogin.getText();
     	
-    	String sql = "SELECT * FROM transpotravel.persona where correu = "+correuLogin+" and contrasenya ="+contrasenyaLogin+" ;";
+    	String sql = "SELECT * FROM transpotravel.persona where correu = '"+correu+"' and contrasenya = '"+contrasenya+"';";
     	
-    	//Statement statement = 
+    	
+    	try {
+    		
+    		Statement st = connectDB.createStatement();
+    		ResultSet queryResult = st.executeQuery(sql);
+    		
+    		
+    			
+    		if(queryResult.next()) {
+    				
+    			App.setRoot("Transpotravel");
+    				
+    		}else {
+    				
+    			LoginIncorrecte.setText("Login incorrecte, torna a intentar-ho.");
+    				
+    		}
+    			
+    		
+    		
+    		
+    		
+    	}catch (Exception e) {
+    		
+    		e.printStackTrace();
+    		e.getCause();
+    		
+    	}
+    	
+  
     	
     }
+    
+   
     
 
 }

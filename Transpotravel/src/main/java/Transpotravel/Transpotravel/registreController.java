@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -12,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,7 +31,7 @@ public class registreController implements Initializable{
     private TextField Cognom1Usuari;
 
     @FXML
-    private TextField Cognom2Usuari;
+    private TextField CorreuUsuari;
 
     @FXML
     private Button Enrere;
@@ -38,6 +41,9 @@ public class registreController implements Initializable{
 
     @FXML
     private PasswordField contrasenyaUsuari;
+    
+    @FXML
+    private Label missatgeRegistre;
 
     @FXML
     private TextField nomUsuari;
@@ -46,12 +52,49 @@ public class registreController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
     	
     	
-    	
     }
     
     @FXML
     private void pantallaLogin() throws IOException {
         App.setRoot("Login");
+    }
+    
+    public void registreUsuari() {
+    	
+    	if(nomUsuari.getText().isBlank() == false && Cognom1Usuari.getText().isBlank() == false && CorreuUsuari.getText().isBlank() == false && contrasenyaUsuari.getText().isBlank() == false) {
+    		
+    		Conbd conn = new Conbd();
+        	Connection connectDB = conn.getConexio();
+        	
+        	String nom = nomUsuari.getText();
+        	String cognoms = Cognom1Usuari.getText();
+        	String correu = CorreuUsuari.getText();
+        	String contrasenya = contrasenyaUsuari.getText();
+        	
+        	String sql = "Insert into transpotravel.persona(nom,cognom1,correu,contrasenya) values ('"+nom+"','"+cognoms+"','"+correu+"','"+contrasenya+"');";
+        	
+        	
+        	try {
+        		
+        		Statement st = connectDB.createStatement();
+        		st.executeUpdate(sql);
+        		
+        		missatgeRegistre.setText("L'usuari s'ha registrat correctament!");
+        		
+        	}catch (Exception e) {
+        		
+        		e.printStackTrace();
+        		e.getCause();
+        		
+        	}
+    		
+    	}else {
+    							//No quitar este espacio.
+    		missatgeRegistre.setText("       Has d'emplenar tots els camps!"); 
+        	
+    	}
+    	
+    	
     }
 
 }
