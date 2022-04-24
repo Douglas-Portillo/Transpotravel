@@ -14,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -57,6 +58,7 @@ import model.equipatge;
 
 public class TranspotravelController implements Initializable{
 
+	// Variables
     @FXML
     private Button BuscarEquipatge;
 
@@ -91,6 +93,9 @@ public class TranspotravelController implements Initializable{
     private TableColumn<distribuciovols, String> OrigenSeguimentVol;
 
     @FXML
+    private TableColumn<?, ?> PesEquipatgeCompra;
+    
+    @FXML
     private TableColumn<distribuciovols, Integer> PreuViatge;
 
     @FXML
@@ -115,27 +120,213 @@ public class TranspotravelController implements Initializable{
     private TableView<distribuciovols> ViatgesTaulaVols;
 
     @FXML
+    private Button afegirLlistaEquipatgesCompra;
+
+    @FXML
+    private Button cancelarCompra1;
+
+    @FXML
+    private Button cancelarCompra2;
+
+    @FXML
+    private Button cancelarCompra3;
+
+    @FXML
+    private Button cancelarVol;
+
+    @FXML
+    private TableView<?> confirmacioCompraViatge;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioDesti;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioHoraArribada;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioHoraSortida;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioNumeroEquipatges;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioNumeroPlaces;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioOrigen;
+
+    @FXML
+    private TableColumn<?, ?> confirmacioPreu;
+
+    @FXML
+    private TableColumn<?, ?> destiVolsComprats;
+
+    @FXML
+    private TableView<?> equipatgeCompra;
+
+    @FXML
+    private TableView<?> equipatges;
+
+    @FXML
+    private Button finalitzarCompra;
+
+    @FXML
+    private TableColumn<?, ?> horaArribadaVolsComprats;
+
+    @FXML
+    private TableColumn<?, ?> horaSortidaVolsComprats;
+
+    @FXML
+    private TableColumn<?, ?> idEquipatgeEquipatges;
+    
+    @FXML
     private TextField idSeguimentVol;
     
     @FXML
+    private TableColumn<?, ?> idSeguimentVolsComprats;
+    
+    @FXML
     private TableColumn<?,?> imatgeOfertes;
+    
+    @FXML
+    private Button modificarVol;
+    
+    @FXML
+    private TableColumn<?, ?> numeroEquipatgesVolsComprats;
+
+    @FXML
+    private TextField numeroPlaces1;
+
+    @FXML
+    private TextField numeroPlaces2;
+
+    @FXML
+    private TextField numeroPlaces3;
+
+    @FXML
+    private TableColumn<?, ?> numeroPlacesVolsComprats;
 
     @FXML
     private TableColumn<equipatge, String> origenEquipatge;
+    
+    @FXML
+    private TableColumn<?, ?> origenVolsComprats;
+    
+    @FXML
+    private TableColumn<?, ?> pesEquipatges;
+
+    @FXML
+    private TableColumn<?, ?> preuVolsComprats;
+
+    @FXML
+    private TableColumn<?, ?> puntRecollidaEquipatgeCompra;
+
+    @FXML
+    private TableColumn<?, ?> puntRecollidaEquipatges;
 
     @FXML
     private TableColumn<equipatge, String> puntRecollidaSeguimentVol;
 
     @FXML
+    private Button seguentCompra1;
+
+    @FXML
+    private Button seguentCompra2;
+
+    @FXML
+    private Tab tabComprarViatge1;
+
+    @FXML
+    private Tab tabComprarViatge2;
+
+    @FXML
+    private Tab tabComprarViatge3;
+
+    @FXML
+    private Tab tabContacte;
+
+    @FXML
+    private Tab tabEquipatges;
+
+    @FXML
+    private Tab tabOfertes;
+
+    @FXML
+    private Tab tabPerfil;
+
+    @FXML
+    private Tab tabSeguiment;
+
+    @FXML
+    private Tab tabViatges;
+
+    @FXML
+    private TextField textPesEquipatgeCompra;
+
+    @FXML
+    private TextField textPuntRecollidaCompra;
+    
+    @FXML
     private TextField textfieldidEquipatge;
 
     @FXML
+    private Button tornarPerfil;
+
+    @FXML
+    private TableView<?> volsComprats;
+    
+    @FXML
     private TableColumn<distribuciovols, Integer> volsViatge;
     
+    
+    
+    // Llistas Observables
     private ObservableList<equipatge> llistaEquipatge;
     
     private ObservableList<distribuciovols> llistaVolsClients;
     
+    
+
+    // Funcions
+    @FXML
+    void onClickAfegirEquipatgeLlistaCompra(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickCancelarCompra(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickCancelarVol(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickFinalitzarCompra(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickModificarVol(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSeguentCompra1(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSeguentCompra2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickTornarPerfil(ActionEvent event) {
+
+    }
     
     @FXML
     void onClickBuscarEquipatge(ActionEvent event) {
@@ -227,9 +418,9 @@ public class TranspotravelController implements Initializable{
     	//---------------------------------------------------------------------------------------------------------------------
     	
 		ObservableList<distribuciovols>imatges=FXCollections.observableArrayList();
-	    
+		
     	try {
-			InputStream input= new FileInputStream("C:\\Users\\Douglas\\git\\Transpotravel\\Transpotravel\\Imatges\\viatgeDef.jpg");
+			InputStream input= new FileInputStream(".\\Imatges\\viatgeDef.jpg");
 	    	Image myimage =new Image(input);	
 	    	ImageView em1 =new ImageView(myimage);
 	    	distribuciovols ImatgeNova=new distribuciovols(0, null, null, 0, null, null, 0, 0, null,em1,null);
@@ -237,7 +428,7 @@ public class TranspotravelController implements Initializable{
 	    	imatges.add(ImatgeNova);
     	
     	
-	    	InputStream input2= new FileInputStream("C:\\Users\\Douglas\\git\\Transpotravel\\Transpotravel\\Imatges\\viatgeDef.jpg");
+	    	InputStream input2= new FileInputStream(".\\Imatges\\viatgeDef.jpg");
 	    	Image myimage2 =new Image(input2);	
 	    	ImageView em2 =new ImageView(myimage2);
 	    	distribuciovols ImatgeNova2=new distribuciovols(0, null, null, 0, null, null, 0, 0, null,em2,null);

@@ -21,7 +21,7 @@
          </font></Text>
       <TabPane layoutY="57.0" prefHeight="345.0" prefWidth="600.0" style="-fx-background-color: #002534;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab style="-fx-background-color: #34495E;" text="Ofertes">
+          <Tab fx:id="tabOfertes" style="-fx-background-color: #34495E;" text="Ofertes">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="765.0" style="-fx-background-color: #154360;">
                      <children>
@@ -34,7 +34,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab style="-fx-background-color: #34495E;" text="Viatges">
+          <Tab fx:id="tabViatges" style="-fx-background-color: #34495E;" text="Viatges">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -67,7 +67,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-background-color: #34495E;" text="Seguiment">
+            <Tab fx:id="tabSeguiment" style="-fx-background-color: #34495E;" text="Seguiment">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -113,7 +113,34 @@
                      </children></AnchorPane>
                </content>
             </Tab>
-            <Tab style="-fx-background-color: #34495E;" text="Contacte">
+            <Tab fx:id="tabPerfil" style="-fx-background-color: #34495E;" text="Perfil">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="volsComprats" layoutY="76.0" prefHeight="134.0" prefWidth="961.0">
+                          <columns>
+                              <TableColumn fx:id="idSeguimentVolsComprats" prefWidth="116.0" text="ID de Seguiment" />
+                              <TableColumn fx:id="origenVolsComprats" prefWidth="75.0" text="Origen" />
+                              <TableColumn fx:id="destiVolsComprats" prefWidth="75.0" text="Desti" />
+                              <TableColumn fx:id="horaSortidaVolsComprats" prefWidth="135.0" text="Dia i Hora de Sortida" />
+                              <TableColumn fx:id="horaArribadaVolsComprats" prefWidth="133.0" text="Dia i Hora d'Arribada" />
+                              <TableColumn fx:id="preuVolsComprats" text="Preu" />
+                              <TableColumn fx:id="numeroEquipatgesVolsComprats" prefWidth="116.0" text="Equipatges" />
+                              <TableColumn fx:id="numeroPlacesVolsComprats" prefWidth="116.0" text="Places" />
+                          </columns>
+                        </TableView>
+                        <Text fill="WHITE" layoutX="236.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vols Comprats">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="cancelarVol" disable="true" layoutX="437.0" layoutY="252.0" mnemonicParsing="false" onAction="#onClickCancelarVol" text="Cancel·lar Vol" />
+                        <Button fx:id="modificarVol" disable="true" layoutX="320.0" layoutY="252.0" mnemonicParsing="false" onAction="#onClickModificarVol" text="Modificar Vol" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabContacte" style="-fx-background-color: #34495E;" text="Contacte">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -165,6 +192,120 @@
                            </font>
                         </Text>
                      </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabEquipatges" disable="true" text="Equipatges">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="equipatges" layoutY="69.0" prefHeight="178.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="idEquipatgeEquipatges" prefWidth="111.0" text="ID del Equipatge" />
+                              <TableColumn fx:id="pesEquipatges" prefWidth="125.0" text="Pes" />
+                              <TableColumn fx:id="puntRecollidaEquipatges" prefWidth="125.0" text="Punt de Recollida" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="tornarPerfil" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickTornarPerfil" text="&lt;-" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabComprarViatge1" disable="true" style="-fx-background-color: #34495E;" text="Comprar Viatge">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="195.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Viatge | Places">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="seguentCompra1" disable="true" layoutX="324.0" layoutY="227.0" mnemonicParsing="false" onAction="#onClickSeguentCompra1" text="Següent" />
+                        <Button fx:id="cancelarCompra1" disable="true" layoutX="195.0" layoutY="227.0" mnemonicParsing="false" onAction="#onClickCancelarCompra" text="Cancel·lar Compra" />
+                        <Text fill="WHITE" layoutX="195.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="numeroPlaces2" layoutX="343.0" layoutY="121.0" prefHeight="25.0" prefWidth="41.0" text="0" />
+                        <Text fill="WHITE" layoutX="195.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menors de 16:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="numeroPlaces3" layoutX="343.0" layoutY="160.0" prefHeight="25.0" prefWidth="41.0" text="0" />
+                        <Text fill="WHITE" layoutX="195.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Majors de 60:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="numeroPlaces1" layoutX="343.0" layoutY="84.0" prefHeight="25.0" prefWidth="41.0" text="0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabComprarViatge2" disable="true" style="-fx-background-color: #34495E;" text="Comprar Viatge">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="174.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Viatge | Equipatges">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="seguentCompra2" disable="true" layoutX="331.0" layoutY="249.0" mnemonicParsing="false" onAction="#onClickSeguentCompra2" text="Següent" />
+                        <Button fx:id="cancelarCompra2" disable="true" layoutX="187.0" layoutY="249.0" mnemonicParsing="false" onAction="#onClickCancelarCompra" text="Cancel·lar Compra" />
+                        <TextField fx:id="textPesEquipatgeCompra" layoutX="384.0" layoutY="76.0" prefHeight="25.0" prefWidth="45.0" promptText="25,00" />
+                        <Text fill="WHITE" layoutX="331.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pes">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="435.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kg">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="equipatgeCompra" layoutX="100.0" layoutY="75.0" prefHeight="139.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="PesEquipatgeCompra" prefWidth="75.0" text="Pes" />
+                            <TableColumn fx:id="puntRecollidaEquipatgeCompra" prefWidth="123.0" text="Punt de Recollida" />
+                          </columns>
+                        </TableView>
+                        <Text fill="WHITE" layoutX="330.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Punt de Recollida">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="afegirLlistaEquipatgesCompra" disable="true" layoutX="331.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClickAfegirEquipatgeLlistaCompra" text="Afegir Equipatge a la Llista" />
+                        <TextField fx:id="textPuntRecollidaCompra" layoutX="332.0" layoutY="147.0" prefHeight="25.0" prefWidth="154.0" promptText="Aeroport de Barcelona" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabComprarViatge3" disable="true" style="-fx-background-color: #34495E;" text="Comprar Viatge">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="174.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Viatge | Confirmació">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="finalitzarCompra" disable="true" layoutX="331.0" layoutY="249.0" mnemonicParsing="false" onAction="#onClickFinalitzarCompra" text="Finalitzar Compra" />
+                        <Button fx:id="cancelarCompra3" disable="true" layoutX="187.0" layoutY="249.0" mnemonicParsing="false" onAction="#onClickCancelarCompra" text="Cancel·lar Compra" />
+                        <TableView fx:id="confirmacioCompraViatge" layoutY="91.0" prefHeight="87.0" prefWidth="961.0">
+                           <columns>
+                              <TableColumn fx:id="confirmacioOrigen" prefWidth="75.0" text="Origen" />
+                              <TableColumn fx:id="confirmacioDesti" prefWidth="75.0" text="Desti" />
+                              <TableColumn fx:id="confirmacioHoraSortida" prefWidth="132.0" text="Dia i Hora de Sortida" />
+                              <TableColumn fx:id="confirmacioHoraArribada" prefWidth="131.0" text="Dia i Hora d'Arribada" />
+                              <TableColumn fx:id="confirmacioPreu" prefWidth="85.0" text="Preu" />
+                              <TableColumn fx:id="confirmacioNumeroEquipatges" prefWidth="116.0" text="Equipatges" />
+                              <TableColumn fx:id="confirmacioNumeroPlaces" prefWidth="116.0" text="Places" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
         </tabs>
