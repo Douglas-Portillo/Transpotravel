@@ -16,7 +16,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {//hola
-
+// DE LOCOS - AP
     private static Scene scene;//aa
 
     @Override
