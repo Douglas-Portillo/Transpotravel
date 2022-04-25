@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -22,7 +23,12 @@ public interface distribuciovolsDAO {
 		
 		
 	}
-	
+	public static void insertarVol(Conbd conn,String idorigen,String iddesti,int preu,LocalDateTime horaSortida,LocalDateTime horaArribada) {
+	}
+	public static void eliminarVol(Conbd conn,String idvol) {
+		
+	}
+
 	distribuciovols cercarVolClient(Conbd conn, int id);
 	
 }

@@ -1,5 +1,5 @@
 package model;
-import java.sql.ResultSet;      
+import java.sql.ResultSet;       
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
@@ -232,5 +232,44 @@ public class distribuciovolsDAOImpl implements distribuciovolsDAO{
 			return distribuciovolsClient;
 		
 		}
-
+	
+	
+	public static void eliminarVol(Conbd conn,String idvol) {
+    	
+    	String sql = "delete from distribuciovols where iddistribuciovols="+idvol;
+    	PreparedStatement pst = null;
+    	
+    	try {
+    		
+    		pst = conn.getConexio().prepareStatement(sql);
+    		pst.execute();
+    		
+    		
+    		
+    	}catch (Exception e) {
+    		
+    		System.out.println("ERROR - distribuciovols controller - eliminar vol" + e);
+    		
+    	}
+	}
+	
+	public static void insertarVol(Conbd conn,String idorigen,String iddesti,int preu,LocalDateTime horaSortida,LocalDateTime horaArribada) {
+    	
+		String sql = "insert into distribuciovols(idorigen,iddesti,preu,horaSortida,horaArribada) values ("+idorigen+","+iddesti+","+preu+","+horaSortida+","+horaArribada+")";
+	    	PreparedStatement pst = null;
+	    	
+	    	try {
+	    		
+	    		pst = conn.getConexio().prepareStatement(sql);
+	    		pst.execute();
+	    		
+	    		
+	    		
+	    	}catch (Exception e) {
+	    		
+	    		System.out.println("ERROR - distribuciovols controller - eliminar vol" + e);
+	    		
+	    	}
+	}
+    	
 }
