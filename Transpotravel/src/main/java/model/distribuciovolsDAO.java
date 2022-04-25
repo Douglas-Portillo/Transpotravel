@@ -23,6 +23,7 @@ public interface distribuciovolsDAO {
 		
 		
 	}
+	public static void ComboBoxVols(Conbd conn,List<String> ciutats) {}
 	public static void insertarVol(Conbd conn,String idorigen,String iddesti,int preu,LocalDateTime horaSortida,LocalDateTime horaArribada) {
 	}
 	public static void eliminarVol(Conbd conn,String idvol) {

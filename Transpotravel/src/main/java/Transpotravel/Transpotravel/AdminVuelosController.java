@@ -31,13 +31,13 @@ public class AdminVuelosController implements Initializable{
     private Button ButtonBorrarVols;
 
     @FXML
-    private ComboBox<?> ComboboxElminarVols;
+    private ComboBox<String> ComboboxElminarVols;
 
     @FXML
-    private ComboBox<?> Comboboxdesti;
+    private ComboBox<String> Comboboxdesti;
 
     @FXML
-    private ComboBox<?> ComboxOrigen;
+    private ComboBox<String> ComboxOrigen;
 
     @FXML
     private Button butoncrearvol;
@@ -57,7 +57,20 @@ public class AdminVuelosController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	
+    	ObservableList <String> paisosborrar;
+    	paisosborrar = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
+    	ComboboxElminarVols.setItems(paisosborrar);
     	
+    	ObservableList <String> Comboboxdesti;
+    	paisosborrar = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
+    	ComboboxElminarVols.setItems(paisosborrar);
+    	
+    	ObservableList <String> ComboxOrigen;
+    	paisosborrar = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
+    	ComboboxElminarVols.setItems(paisosborrar);
     	
     }
     

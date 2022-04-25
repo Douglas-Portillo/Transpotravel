@@ -64,6 +64,29 @@ public class distribuciovolsDAOImpl implements distribuciovolsDAO{
 		}*/
 	
 	
+	public static void ComboBoxVols(Conbd conn,List<String> ciutats) {
+		String sql2 = "select localitzacio.ciutat from distribuciovols;";
+		
+		try {
+			
+			PreparedStatement ps = conn.getConexio().prepareStatement(sql2);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				String NomCiutat = rs.getString("localitzacio.ciutat");
+				
+				ciutats.add(NomCiutat);			
+				
+			}
+					
+		}catch(Exception e) {
+
+			System.out.println("ERROR En el Combobox Totes les Ciutats");
+			
+		}
+	}
+		
 	public static void ComboBoxDesti(Conbd conn,List<String> destins) {
 		
 		String sql2 = "select localitzacio.ciutat from distribuciovols inner join localitzacio on distribuciovols.iddesti=localitzacio.idLocalitzacio;";
