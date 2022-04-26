@@ -90,7 +90,7 @@ public class LoginController implements Initializable{
     				
     		}else {
     				
-    			LoginIncorrecte.setText("Login incorrecte, torna a intentar-ho.");
+    			LoginIncorrecte.setText("Login incorrecte, torna a intentar-ho."); //prova2
     				
     		}
     			
