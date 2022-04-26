@@ -9,12 +9,15 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -28,55 +31,96 @@ public class AdminVuelosController implements Initializable{
 
 	
     @FXML
-    private Button ButtonBorrarVols;
+    private TableColumn<distribuciovols, String> ColumnIdVol;
 
     @FXML
-    private ComboBox<String> ComboboxElminarVols;
+    private TableColumn<distribuciovols, LocalDateTime> Columndataarribada;
 
     @FXML
-    private ComboBox<String> Comboboxdesti;
+    private TableColumn<distribuciovols, LocalDateTime> Columndatasortida;
 
     @FXML
-    private ComboBox<String> ComboxOrigen;
+    private TableColumn<distribuciovols, String> Columndesti;
 
     @FXML
-    private Button butoncrearvol;
+    private TableColumn<distribuciovols, String> Columnorigen;
 
     @FXML
-    private DatePicker inputdataarribada;
+    private TableColumn<distribuciovols, Integer> Columnpreu;
+
+    @FXML
+    private Button OnClickBorrarVol;
+
+    @FXML
+    private Button buttonCrearVol;
+
+    @FXML
+    private ComboBox<String> combobosorigen;
+
+    @FXML
+    private ComboBox<String> comboboxdesti;
+
+    @FXML
+    private ComboBox<String> comboboxpuntrecollida;
+
+    @FXML
+    private DatePicker inputdatarribada;
 
     @FXML
     private DatePicker inputdatasortida;
 
     @FXML
     private TextField inputpreu;
+    
+    @FXML
+    private TextField inputidborrar;
+
+    @FXML
+    private TableView<distribuciovols> volsComprats;
 	
  	
+    @FXML
+    void OnClickBorrarVol(ActionEvent event) {
+    	
+    	distribuciovolsDAOImpl.eliminarVol(conexio, inputidborrar.getText());
+    }
+    
+    
  	private Conbd conexio;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	
-    	ObservableList <String> paisosborrar;
-    	paisosborrar = FXCollections.observableArrayList();
-    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
-    	ComboboxElminarVols.setItems(paisosborrar);
     	
-    	ObservableList <String> Comboboxdesti;
-    	paisosborrar = FXCollections.observableArrayList();
-    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
-    	ComboboxElminarVols.setItems(paisosborrar);
     	
-    	ObservableList <String> ComboxOrigen;
-    	paisosborrar = FXCollections.observableArrayList();
-    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisosborrar);
-    	ComboboxElminarVols.setItems(paisosborrar);
+    	ObservableList <String> paisos_origen;
+    	paisos_origen = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisos_origen);
+    	comboboxdesti.setItems(paisos_origen);
     	
+    	ObservableList <String> paisos_destins;
+    	paisos_destins = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxVols(conexio, paisos_destins);
+    	comboboxdesti.setItems(paisos_destins);
+    	
+    	ObservableList <String> punts_recollida;
+    	punts_recollida = FXCollections.observableArrayList();
+    	distribuciovolsDAOImpl.ComboBoxPuntsRecollida(conexio, punts_recollida);
+    	comboboxpuntrecollida.setItems(punts_recollida);
+    	
+    	ObservableList <distribuciovols>llistaVols;
+	    llistaVols=FXCollections.observableArrayList();
+	    	
+	   
+		distribuciovolsDAOImpl.cercarVols(conexio, llistaVols);    
+		volsComprats.setItems(llistaVols);
+		ColumnIdVol.setCellValueFactory(new PropertyValueFactory<distribuciovols,String>("iddistribuciovols"));
+		Columndataarribada.setCellValueFactory(new PropertyValueFactory<distribuciovols,LocalDateTime>("horaArribada"));
+		Columndatasortida.setCellValueFactory(new PropertyValueFactory<distribuciovols,LocalDateTime>("horaSortida"));
+		Columndesti.setCellValueFactory(new PropertyValueFactory<distribuciovols,String>("iddistribuciovols"));
+		Columnorigen.setCellValueFactory(new PropertyValueFactory<distribuciovols,String>("horaSortida"));
+		Columnpreu.setCellValueFactory(new PropertyValueFactory<distribuciovols,Integer>("preu"));
     }
     
-    @FXML
-    private void pantallaLogin() throws IOException {
-        App.setRoot("Login");
-    }
-
+    
 }

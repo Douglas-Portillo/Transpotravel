@@ -62,10 +62,8 @@ public class distribuciovolsDAOImpl implements distribuciovolsDAO{
 			}
 			
 		}*/
-	
-	
-	public static void ComboBoxVols(Conbd conn,List<String> ciutats) {
-		String sql2 = "select localitzacio.ciutat from distribuciovols;";
+	public static void ComboBoxPuntsRecollida(Conbd conn,List<String> puntsrecollida) {
+		String sql2 = "Select adreca from puntrecollida;";
 		
 		try {
 			
@@ -74,7 +72,30 @@ public class distribuciovolsDAOImpl implements distribuciovolsDAO{
 			
 			while(rs.next()) {
 				
-				String NomCiutat = rs.getString("localitzacio.ciutat");
+				String nompuntrecollida = rs.getString("adreca");
+				
+				puntsrecollida.add(nompuntrecollida);			
+				
+			}
+					
+		}catch(Exception e) {
+
+			System.out.println("ERROR En el Combobox Totes les Ciutats");
+			
+		}
+	}
+	
+	public static void ComboBoxVols(Conbd conn,List<String> ciutats) {
+		String sql2 = "Select ciutat from localitzacio;";
+		
+		try {
+			
+			PreparedStatement ps = conn.getConexio().prepareStatement(sql2);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				String NomCiutat = rs.getString("ciutat");
 				
 				ciutats.add(NomCiutat);			
 				
@@ -203,6 +224,7 @@ public class distribuciovolsDAOImpl implements distribuciovolsDAO{
 				int idpuntrecollida = rs.getInt("idPuntRecollida");
 				String descripcio = rs.getString("descripcio");
 				String estat = rs.getString("estat");
+				
 				
 				distribuciovols afegir = new distribuciovols(iddistribuciovols, idorigen,iddesti, preu,horaArribada,horaSortida,oferta,idpuntrecollida,descripcio,null,estat);
 
